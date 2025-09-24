@@ -21,9 +21,29 @@ BRAM Module:<br/>
  This module wraps a Lattice-specific SB_RAM1024x4 block to provide dual-clock read/write access to a 1024-depth, 4-bit wide memory array. It supports asynchronous operation between camera and system clock domains, enabling pixel data to be written during wclk and read when rclk. Read and write enables are gated through a shared clk_enable signal to ensure consistent access.<br/>
  <br/>
 FIFO_Top Module:<br/>
-The FIFO_TOP module implements a FIFO for transferring 4-bit pixel data between unsynchronized write (wclk) and read (rclk) domains. It uses Gray-coded pointers and synchronization modules to safely pass write and read addresses across clock boundaries, minimizing metastability. The FIFO depth is 1024, and data is stored using a BRAM_Module wrapper around Lattice’s SB_RAM1024x4. This design enables reliable buffering of camera data for real-time VGA display, with full and empty flags for flow control.
+The FIFO_TOP module implements a FIFO for transferring 4-bit pixel data between unsynchronized write (wclk) and read (rclk) domains. It uses Gray-coded pointers and synchronization modules to safely pass write and read addresses across clock boundaries, minimizing metastability. The FIFO depth is 1024, and data is stored using a BRAM_Module wrapper around Lattice’s SB_RAM1024x4. This design enables reliable buffering of camera data for real-time VGA display, with full and empty flags for flow control.<br/>
+<br/>
+XCLK_Divider Module:<br/>
+The xclk_divider module generates a stable ~25 MHz clock signal (o_XCLK) for the OV7670 camera by instancing the Lattice-specific SB_PLL40_CORE. It multiplies and divides the input clock (i_Clk) through configured PLL parameters to match the camera’s timing requirements. The locked output indicates PLL stability, ensuring reliable synchronization for downstream modules. This divider is essential for feeding the OV7670 a consistent clock source directly from the FPGA.
+Camera_Interface_Register Module:<br/>
 
-Procedure to Test:
+VGA_Sync Module:<br/>
+
+Sync_To_Count Module:<br/>
+
+VGA_Control Module:<br/>
+
+FIFO_MEM Module:<br/>
+
+FIFO_READ Module:<br/>
+
+FIFO_WRITE Module:<br/>
+
+FIFO_Synch Module:<br/>
+
+Camera_to_ICE40 Module:<br/>
+
+SCCB_Module:<br/>
 
 
 
