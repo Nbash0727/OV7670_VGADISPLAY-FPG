@@ -1,25 +1,4 @@
-// Simple clock divider for XCLK: output toggles every DIVIDE cycles
-/* module xclk_divider #(
-    parameter integer DIVIDE = 1  // io = i_Clk/(2*DIVIDE)
-) (
-    input  wire i_Clk,
-    output wire o_XCLK
-);
-    reg [$clog2(DIVIDE)-1:0] cnt = 0;
-    reg xclk_r = 1'b0;
 
-    always @(posedge i_Clk) begin
-        if (cnt == DIVIDE-1) begin
-            cnt   <= 0;
-            xclk_r <= ~xclk_r;
-        end else begin
-            cnt <= cnt + 1;
-        end
-    end
-
-    assign o_XCLK = xclk_r;
-endmodule
- */
 /* 
 `timescale 1ns / 1ps
 
@@ -76,5 +55,6 @@ SB_PLL40_CORE #(
     .BYPASS(1'b0),
     .RESETB(1'b1)
 );
+
 
 endmodule
