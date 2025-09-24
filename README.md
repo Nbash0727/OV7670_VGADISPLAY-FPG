@@ -14,7 +14,7 @@ After resolving synchronization issues, the final output was a 32×32 greyscale 
 https://github.com/user-attachments/assets/4c5a32e4-5629-4df1-a7e1-97e38d9ac5d5
 
 Verilog File Description's:
-&nbsp;Top Module:
+&emsp;Top Module:
 The top module integrates camera capture, FIFO buffering, and VGA display into a grayscale imaging system using the OV7670 and a NANDLAND ICE40 FPGA. It reads pixel   data from PMOD inputs, buffers it across clock domains, and maps a 32×32 grayscale window onto a 640×480 VGA frame. Sync signals, pixel coordinates, and frame         readiness are managed internally, with LED indicators showing system status. SCCB configuration logic is included but optional, allowing flexible synthesis and        testing.
   
 
