@@ -18,8 +18,8 @@ Top Module:<br/>
 The top module integrates camera capture, FIFO buffering, and VGA display into a grayscale imaging system using the OV7670 and a NANDLAND ICE40 FPGA. It reads pixel data from PMOD inputs, buffers it across clock domains, and maps a 32×32 grayscale window onto a 640×480 VGA frame. Sync signals, pixel coordinates, and frame readiness are managed internally, with LED indicators showing system status. SCCB configuration logic is included but optional, allowing flexible synthesis and testing.<br/>
 BRAM Module:<br/>
  This module wraps a Lattice-specific SB_RAM1024x4 block to provide dual-clock read/write access to a 1024-depth, 4-bit wide memory array. It supports asynchronous operation between camera and system clock domains, enabling pixel data to be written during wclk and read when rclk. Read and write enables are gated through a shared clk_enable signal to ensure consistent access. 
-
-
+FIFO_Top Module:<br/>
+The FIFO_TOP module implements a FIFO for transferring 4-bit pixel data between unsynchronized write (wclk) and read (rclk) domains. It uses Gray-coded pointers and synchronization modules to safely pass write and read addresses across clock boundaries, minimizing metastability. The FIFO depth is 1024, and data is stored using a BRAM_Module wrapper around Lattice’s SB_RAM1024x4. This design enables reliable buffering of camera data for real-time VGA display, with full and empty flags for flow control.
 
 Procedure to Test:
 
