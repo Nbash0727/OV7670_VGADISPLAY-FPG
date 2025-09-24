@@ -59,8 +59,9 @@ Testing Procedure:<br/>
 <br/>
 https://www.youtube.com/@Nandland
 <br/>
-2.) The first step in this project is to properly connect all the pins for camera and board interface. To properly connect the PMOD you must first look at the data sheet and determine which pins accept IO's. The proper setup is to use pins 5/6 for Vcc/GND and then use pins 1-4/7-10 for the digital IO's.<br/>
-<img width="674" height="249" alt="image" src="https://github.com/user-attachments/assets/a34a0f46-e87f-4645-b4fc-51e3ed78dbec" /><br/>
+2.) The first step in this project is to properly connect all the pins for camera and board interface. To properly connect the PMOD you must first look at the data sheet and determine which pins accept IO's. The proper setup is to use pins 5/6 for Vcc/GND and then use pins 1-4/7-10 for the digital IO's.
+<br/>
+<img width="577" height="253" alt="image" src="https://github.com/user-attachments/assets/d8ff4a50-a6af-42f8-a11b-488fe68ed38f" />
 <img width="467" height="334" alt="image" src="https://github.com/user-attachments/assets/0d16ebd8-2ec1-4421-a576-a8e95dbb9d85" /><br/>
 
 
