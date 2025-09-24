@@ -2,10 +2,10 @@
 Created by: Nathan Ash
 
 Project Goal:<br/>
-The goal of ths project was to implement a functional camera feed using a NANDLAND FPGA board and an OV7670 camera with VGA output. Due to hardware limitations there were only 10 usable PMODs on the NANDLAND board and the camera had 18 usable pins, so the design required creative workarounds.
+The goal of this project was to implement a functional camera feed using a NANDLAND FPGA board and an OV7670 camera with VGA output. Due to hardware limitations, there were only 10 usable PMODs on the NANDLAND board and the camera had 18 usable pins, so the design required creative workarounds.
 
 Project Workarounds:<br/>
-To make sure the feed could still be processed with limited IO the SCCB interface had to be configured. The camera output was configured to greyscale to reduce data width from 8 bits to 4 bits, enabling partial transmission. Even though this workaround allowed limited data to be transmitted there was still not enough IOs available. To account for this the synthesis was broken into two parts, the first being the SCCB configuration and the second being the actual feed.
+To make sure the feed could still be processed with limited I/O the SCCB interface had to be configured. The camera output was configured to grayscale to reduce data width from 8 bits to 4 bits, enabling partial transmission. Even though this workaround allowed limited data to be transmitted there still weren't enough I/Os available. To account for this, the synthesis was broken into two parts, the first being the SCCB configuration and the second being the actual feed.
 
 Project Result:<br/>
 After resolving synchronization issues, the final output was a 32×32 greyscale display. Functionality was validated by occluding and revealing the camera lens, confirming dynamic pixel response to light changes.
@@ -13,7 +13,7 @@ After resolving synchronization issues, the final output was a 32×32 greyscale 
 
 https://github.com/user-attachments/assets/4c5a32e4-5629-4df1-a7e1-97e38d9ac5d5
 
-Verilog File Description's:<br/>
+Verilog File Descriptions:<br/>
 Top Module:<br/>
 The top module integrates camera capture, FIFO buffering, and VGA display into a grayscale imaging system using the OV7670 and a NANDLAND ICE40 FPGA. It reads pixel data from PMOD inputs, buffers it across clock domains, and maps a 32×32 grayscale window onto a 640×480 VGA frame. Sync signals, pixel coordinates, and frame readiness are managed internally, with LED indicators showing system status. SCCB configuration logic is included but optional, allowing flexible synthesis and testing.<br/>
 <br/>
@@ -63,9 +63,9 @@ https://www.youtube.com/@Nandland
 <br/>
 <img width="577" height="253" alt="image" src="https://github.com/user-attachments/assets/d8ff4a50-a6af-42f8-a11b-488fe68ed38f" />
 <img width="467" height="334" alt="image" src="https://github.com/user-attachments/assets/0d16ebd8-2ec1-4421-a576-a8e95dbb9d85" /><br/>
-3.) After properly assigned the pins you need to complete Part 1, which is the SCCB configuration thats controlled through the Top_Module.v. The first step is to make sure the SDA assignment is set to "inout" and that the SCL is set to "output". Also, you must have "pixd[0]" and "pixd[1]" set to some constant. Then you must make sure the instances for Camera_Interface_Registers and SCCB_Module are uncommented. The final step is just synthesizing the RTL with ICECUBE and programming the FPGA with Diamond Programmer. <br/>
+3.) After properly assigning the pins you need to complete Part 1, which is the SCCB configuration that's controlled through the Top_Module.v. The first step is to make sure the SDA assignment is set to "inout" and that the SCL is set to "output". Also, you must have "pixd[0]" and "pixd[1]" set to some constant. Then you must make sure the instances for Camera_Interface_Registers and SCCB_Module are uncommented. The final step is just synthesizing the RTL with ICECUBE and programming the FPGA with Diamond Programmer. <br/>
 <br/>
-4.) The final part is basically the inverse of Part 1; so you need to comment the instances, set the SDA/SCL PMOD's to input, and then have the "pixd[0/1]" set to the SDA/SCL PMOD. This obviously means that you replace the wires that are currently connected, but make sure to keep the power on since the SCCB configuration will reset if the camera turns off. Another thing to keep in mind is that a breadboard make be very useful since the SDA/SCL wires each need to be in parallel with a 4.7Kohm resistor that is connected to Vcc. 
+4.) The final part is basically the inverse of Part 1; so you need to comment the instances, set the SDA/SCL PMOD's to input, and then have the "pixd[0/1]" set to the SDA/SCL PMOD. This obviously means that you replace the wires that are currently connected, but make sure to keep the power on since the SCCB configuration will reset if the camera turns off. Another thing to keep in mind is that a breadboard may be very useful since the SDA/SCL wires each need to be in parallel with a 4.7Kohm resistor that is connected to Vcc. 
 
 
 
