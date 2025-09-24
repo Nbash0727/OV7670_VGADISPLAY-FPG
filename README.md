@@ -10,8 +10,11 @@ To make sure the feed could still be processed with limited IO the SCCB interfac
 Project Result:
 After resolving synchronization issues, the final output was a 32×32 greyscale display. Functionality was validated by occluding and revealing the camera lens, confirming dynamic pixel response to light changes.
 
+
+https://github.com/user-attachments/assets/4c5a32e4-5629-4df1-a7e1-97e38d9ac5d5
+
+
 Procedure to Test:
 
 
-https://github.com/user-attachments/assets/365b527d-4573-4343-8df3-dae46b8eba42
 
