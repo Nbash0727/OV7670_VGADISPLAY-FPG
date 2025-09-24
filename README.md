@@ -64,6 +64,7 @@ https://www.youtube.com/@Nandland
 <img width="577" height="253" alt="image" src="https://github.com/user-attachments/assets/d8ff4a50-a6af-42f8-a11b-488fe68ed38f" />
 <img width="467" height="334" alt="image" src="https://github.com/user-attachments/assets/0d16ebd8-2ec1-4421-a576-a8e95dbb9d85" /><br/>
 3.) After properly assigned the pins you need to complete Part 1, which is the SCCB configuration thats controlled through the Top_Module.v. The first step is to make sure the SDA assignment is set to "inout" and that the SCL is set to "output". Also, you must have "pixd[0]" and "pixd[1]" set to some constant. Then you must make sure the instances for Camera_Interface_Registers and SCCB_Module are uncommented. The final step is just synthesizing the RTL with ICECUBE and programming the FPGA with Diamond Programmer. <br/>
+<br/>
 4.) The final part is basically the inverse of Part 1; so you need to comment the instances, set the SDA/SCL PMOD's to input, and then have the "pixd[0/1]" set to the SDA/SCL PMOD. This obviously means that you replace the wires that are currently connected, but make sure to keep the power on since the SCCB configuration will reset if the camera turns off. Another thing to keep in mind is that a breadboard make be very useful since the SDA/SCL wires each need to be in parallel with a 4.7Kohm resistor that is connected to Vcc. 
 
 
