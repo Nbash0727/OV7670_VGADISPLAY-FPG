@@ -1,2 +1,4 @@
 # OV7670_VGADISPLAY-FPG
-Personal project folder
+Created by: Nathan Ash
+Project Goal:
+The goal of this project to produce a functional camera feed using an NANDLAND FPGA board and a OV7670 camera with a VGA display. This design only partially achieves that goal since the NANDLAND board has only 10 usable PMODs and the camera has 18 pins. The workaround to this was to first configure the SCCB interface of the OV7670 camera and convert the interface to greyscale. This was done so that data could be processed in 4-bits rather than the usual 8-bits. Even though this allowed to transmit data the feed is never exactly clear. After working through some syncing issues the final result is a 32x32 display of a greyscale camera feed. The feed was validated by covering the camera and then uncovering it to verify that the greyscale data was changing when the camera feed changes. 
