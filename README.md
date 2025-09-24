@@ -52,6 +52,12 @@ The Camera_to_ICE40 module captures pixel data from the OV7670 camera and prepar
 <br/>
 SCCB_Module:<br/>
 The SCCB_Module implements a finite state machine to configure the OV7670 camera via its Serial Camera Control Bus (SCCB), a protocol similar to I²C. It sends a sequence of register writes—device ID, register address, and value—paced by a ~100 kHz tick generator. The module handles bit-level transmission, acknowledgment phases, and generates bidirectional SDA and SCL signals. Once a transaction completes, the taken flag is asserted to signal readiness for the next command.<br/>
+<br/>
+<br/>
+Testing Procedure:<br/>
+1.) For this project the required design tools are ICECUBE2 and Diamond Programmer, which are free through Lattice Semiconductors personal project plan. The method to get free access and properly setup the board are shown on NANDLANDS youtube channel.
+<br/>
+https://www.youtube.com/@Nandland
 
 
 
