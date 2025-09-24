@@ -11,3 +11,7 @@ Project Result:
 After resolving synchronization issues, the final output was a 32×32 greyscale display. Functionality was validated by occluding and revealing the camera lens, confirming dynamic pixel response to light changes.
 
 Procedure to Test:
+
+
+https://github.com/user-attachments/assets/365b527d-4573-4343-8df3-dae46b8eba42
+
