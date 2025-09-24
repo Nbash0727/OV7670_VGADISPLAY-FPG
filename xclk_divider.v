@@ -1,21 +1,21 @@
 
-/* 
-`timescale 1ns / 1ps
+/* `timescale 1ns / 1ps
 
 module xclk_divider_tb;
 
   // Parameters
-  localparam DIVIDE = 4;
-  localparam CLK_PERIOD = 10;  // 100 MHz input clock
+  localparam CLK_PERIOD = 20;  // 50 MHz input clock
 
   // DUT signals
   reg i_Clk = 0;
   wire o_XCLK;
+  wire locked;
 
   // Instantiate DUT
-  xclk_divider #(.DIVIDE(DIVIDE)) dut (
+  xclk_divider dut (
     .i_Clk(i_Clk),
-    .o_XCLK(o_XCLK)
+    .o_XCLK(o_XCLK),
+    .locked(locked)
   );
 
   // Clock generation
@@ -28,13 +28,15 @@ module xclk_divider_tb;
     $display("Starting xclk_divider testbench...");
 
     // Run for a few toggles of o_XCLK
-    #(CLK_PERIOD * DIVIDE * 10);
+    #1000;
 
     $display("Testbench complete.");
     $finish;
   end
 
-endmodule */
+endmodule
+
+ */
 
 module xclk_divider (
     input  wire i_Clk,   // 25 MHz input from board
@@ -58,3 +60,4 @@ SB_PLL40_CORE #(
 
 
 endmodule
+
