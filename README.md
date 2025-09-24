@@ -2,7 +2,7 @@
 Created by: Nathan Ash
 
 Project Goal:
-The goal of ths project was to implement a functional camera feed using a NANDLAND FPGA board and an OV7670 camera with VGA output. Due to hardware limitations—only 10 usable PMODs on the NANDLAND board versus 18 required by the camera—the design required creative workarounds.
+The goal of ths project was to implement a functional camera feed using a NANDLAND FPGA board and an OV7670 camera with VGA output. Due to hardware limitations there were only 10 usable PMODs on the NANDLAND board and the camera had 18 usable pins, so the design required creative workarounds.
 
 Project Workarounds:
 To make sure the feed could still be processed with limited IO the SCCB interface had to be configured. The camera output was configured to greyscale to reduce data width from 8 bits to 4 bits, enabling partial transmission. Even though this workaround allowed limited data to be transmitted there was still not enough IOs available. To account for this the synthesis was broken into two parts, the first being the SCCB configuration and the second being the actual feed.
