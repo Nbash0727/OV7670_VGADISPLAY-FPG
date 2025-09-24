@@ -56,4 +56,34 @@ module Sync_To_Count (
         // o_Frame_Start <= (h_count == 0 && v_count == 0);
     end
 endmodule
+/*
+`timescale 1ns / 1ps
 
+module Sync_To_Count_tb;
+
+  reg i_Clk = 0;
+  wire o_HSync, o_VSync;
+  wire [9:0] o_Col_Count, o_Row_Count;
+
+  // Instantiate DUT
+  Sync_To_Count dut (
+    .i_Clk(i_Clk),
+    .o_HSync(o_HSync),
+    .o_VSync(o_VSync),
+    .o_Col_Count(o_Col_Count),
+    .o_Row_Count(o_Row_Count)
+  );
+
+  // Clock generation
+  always #20 i_Clk = ~i_Clk;  // 25 MHz
+
+  initial begin
+    $dumpfile("sync_to_count_tb.vcd");
+    $dumpvars(0, Sync_To_Count_tb);
+    $display("Starting Sync_To_Count testbench...");
+
+    #1000000;  // Run for a few frames
+    $display("Testbench complete.");
+    $finish;
+  end
+/*
